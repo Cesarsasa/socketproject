@@ -16,7 +16,8 @@ import java.util.logging.Logger;
 public class Servidor {
 
     public static void main(String[] args) {
-        
+       int i=0;
+               
         
         try {
             ServerSocket server = new ServerSocket(5000);
@@ -30,13 +31,14 @@ public class Servidor {
                 
                 DataInputStream in = new DataInputStream(sc.getInputStream());
                 DataOutputStream out = new DataOutputStream(sc.getOutputStream());
-                
+                System.out.println("Toma ticket"+i );
                 // Pido al cliente el nombre al cliente
                 out.writeUTF("Indica tu nombre");
                 String nombreCliente = in.readUTF();
                 
                 // Inicio el hilo
                 ServidorHilo hilo = new ServidorHilo(in, out, nombreCliente);
+                i++;
                 hilo.start();
                 
                 System.out.println("Creada la conexion con el cliente " + nombreCliente);
