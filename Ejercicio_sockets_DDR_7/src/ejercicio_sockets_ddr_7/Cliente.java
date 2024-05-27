@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 public class Cliente {
 
     public static void main(String[] args) {
-        Buffer b = new Buffer(1);
+        //Buffer b = new Buffer(1);
         
         try {
             Scanner sn = new Scanner(System.in);
@@ -31,14 +31,15 @@ public class Cliente {
             
                   String mensaje = in.readUTF();
             System.out.println(mensaje);
-           String nombre = sn.next();
+             int tick= in.read();
+          
             // Escribe el nombre y se lo manda al servidor
            
             
-            out.writeUTF(nombre);
+            out.write(tick);
             
-            String mensaje2 = in.readUTF();
-            System.out.println(mensaje2);
+           
+            System.out.println(tick);
             
 
         } catch (IOException ex) {
