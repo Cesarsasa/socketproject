@@ -28,18 +28,19 @@ public class ServidorHilo extends Thread {
     JTextArea txt1;
     JTextArea txt2;
     JTextArea txt3;
-
+    JLabel lbl1;
     LinkedList cola2 = new LinkedList();
     int id;
 
-    public ServidorHilo(DataInputStream in,DataOutputStream out, LinkedList cola2, JTextArea txt1, JTextArea txt2, JTextArea txt3, Buffer buffer, int id) {
-       
+    public ServidorHilo(DataInputStream in, DataOutputStream out, LinkedList cola2, JTextArea txt1, JTextArea txt2, JTextArea txt3, Buffer buffer,JLabel lbl1, int id) {
+
         this.buffer = buffer;
         this.cola2 = cola2;
         this.id = id;
         this.txt1 = txt1;
         this.txt2 = txt2;
         this.txt3 = txt3;
+        this.lbl1=lbl1;
 
     }
 
@@ -50,17 +51,18 @@ public class ServidorHilo extends Thread {
         // Consume el valor si es posible
 
         if (id == 1) {
-           //System.out.println("Consumir el cliente caja1 " + buffer.getName() + " del buffer");
+            //System.out.println("Consumir el cliente caja1 " + buffer.getName() + " del buffer");
             txt1.setText(buffer.getName());
         } else if (id == 2) {
-           // System.out.println("Consumir el cliente caja2 " + buffer.getName() + " del buffer");
+            // System.out.println("Consumir el cliente caja2 " + buffer.getName() + " del buffer");
             txt2.setText(buffer.getName());
         } else if (id == 3) {
-           // System.out.println("Consumir el cliente caja3 " + buffer.getName() + " del buffer");
+            // System.out.println("Consumir el cliente caja3 " + buffer.getName() + " del buffer");
             txt3.setText(buffer.getName());
         }
         cola2.pop();
         System.out.println("lista:" + cola2);
+        lbl1.setText(cola2.toString());
         //System.out.println("pop:"+  lista.toString());
 
         // Esperamos entre 0 y 4 segundos

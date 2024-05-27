@@ -29,7 +29,7 @@ public class Sala extends javax.swing.JFrame {
     public Sala() {
 
          initComponents();
-         Servidor s = new Servidor(lbl1,txt1, txt2, txt3);
+         Servidor s = new Servidor(txt1, txt2, txt3,lbl1);
          s.start();
          
          
@@ -73,7 +73,7 @@ public class Sala extends javax.swing.JFrame {
         txt3.setRows(5);
         jScrollPane3.setViewportView(txt3);
 
-        jLabel2.setText("Ticket:");
+        jLabel2.setText("COLA");
 
         lbl1.setText("jLabel3");
 
@@ -84,6 +84,9 @@ public class Sala extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,14 +96,11 @@ public class Sala extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(80, 80, 80)
                                     .addComponent(jLabel1))))
-                        .addGap(280, 280, 280)
+                        .addGap(356, 356, 356)
                         .addComponent(jLabel2)
-                        .addGap(39, 39, 39)
-                        .addComponent(lbl1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(332, Short.MAX_VALUE))
+                        .addGap(36, 36, 36)
+                        .addComponent(lbl1)))
+                .addContainerGap(264, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,7 +110,7 @@ public class Sala extends javax.swing.JFrame {
                         .addGap(40, 40, 40)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(lbl1))))

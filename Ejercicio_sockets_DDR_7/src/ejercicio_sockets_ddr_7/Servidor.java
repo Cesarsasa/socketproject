@@ -13,6 +13,7 @@ import java.net.Socket;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import jdk.nashorn.internal.runtime.ListAdapter;
@@ -25,15 +26,17 @@ public class Servidor extends Thread{
         JTextArea txt1;
         JTextArea txt2;
         JTextArea txt3;
+       JLabel lbl1;
                 
 
-    public Servidor(LinkedList cola ,JTextArea txt1,JTextArea txt2,JTextArea txt3) {
+    public Servidor(JTextArea txt1,JTextArea txt2,JTextArea txt3,JLabel lbl1) {
         this.i=i;
         this.b =b;
         this.cola = cola;
         this.txt1=txt1;
         this.txt2=txt2;
         this.txt3=txt3;
+        this.lbl1=lbl1;
         
     }
 
@@ -74,9 +77,9 @@ public class Servidor extends Thread{
                 
                 ClienteHilo hiloc = new ClienteHilo(in,out,cola, b);
                 hiloc.start();
-                ServidorHilo hilos1 = new ServidorHilo( in,out,cola,txt1,txt2,txt3, b, 1);
-                ServidorHilo hilos2 = new ServidorHilo( in,out,cola,txt1,txt2,txt3, b, 2);
-                ServidorHilo hilos3 = new ServidorHilo( in,out,cola,txt1,txt2,txt3, b, 3);
+                ServidorHilo hilos1 = new ServidorHilo( in,out,cola,txt1,txt2,txt3, b,lbl1, 1);
+                ServidorHilo hilos2 = new ServidorHilo( in,out,cola,txt1,txt2,txt3, b,lbl1, 2);
+                ServidorHilo hilos3 = new ServidorHilo( in,out,cola,txt1,txt2,txt3, b,lbl1, 3);
                 hilos1.start();
                 hilos2.start();
                 hilos3.start();
